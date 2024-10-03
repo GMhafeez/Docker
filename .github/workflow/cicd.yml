@@ -1,8 +1,3 @@
-cicd.yml
-+6
-
-
-Original file line number	Diff line number	Diff line change
 name: CI/CD for Dockerized Flask App
 
 on:
@@ -59,9 +54,9 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: .github
+        file: ./DockerFile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/first_projects
+        tags: ${{ secrets.DOCKER_USERNAME }}/flasktest-app:latest
 
-     - name: Image digest
-       run: echo ${{steps.build-and-publish.output.digest}} 
+    - name: Image digest
+      run: echo ${{ steps.build-and-publish.outputs.digest }}
