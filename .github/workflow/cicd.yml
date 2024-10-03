@@ -59,9 +59,9 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: ./DockerFile
+        file: .github
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/first_projects
 
      - name: Image digest
        run: echo ${{steps.build-and-publish.output.digest}} 
